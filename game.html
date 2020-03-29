@@ -32,16 +32,31 @@
             switch(event.keyCode) {
 
                 case 37: //seta esquerda (rodar para esquerda)
-
+                        ship.rot = TURN_SPEED /180 * Math.PI/FPS;
                     break;
                 case 38: // seta para cima ativar boost
 
                     break;
                 case 39: // seta direita (rodar para direita)
-
+                        ship.rot = -TURN_SPEED / 180 * Math.PI/FPS;
                     break;    
 
             }
+
+        }
+
+        function keyUp(event){
+            switch(event.keyCode) {
+                case 37: //seta esquerda (para rodar para esquerda)
+                        ship.rot = 0;
+                    break;
+                case 38: // seta para cima (para or boost)
+
+                    break;
+                case 39: // seta direita (para rodar para direita)
+                        ship.rot = 0;
+                    break;     }
+
 
         }
 
@@ -75,9 +90,12 @@
             ctx.closePath();
             ctx.stroke();
 
-//fim desnho nave triangular
+            //fim desnho nave triangular
 
            
+            //rodar a nave
+            ship.a += ship.rot;
+
               //ponto no centro do triangulo
               ctx.fillStyle= "red";
               ctx.fillRect(ship.x - 1, ship.y - 1, 2,2);
