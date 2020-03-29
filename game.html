@@ -4,14 +4,34 @@
         <title>Asteroid Game</title>
     </head>
 <body>
-    <canvas id="canv" width="700" height="500"></canvas>
+    <canvas id="gameCanv" width="700" height="500"></canvas>
 
     <script>
-        const FPS = 30; 
+        const FPS = 30; //frames por segundo
+        const SHIP_SIZE = 30; // altura em pixels
 
-        var canv = document.getElementById('canv');
+        var canv = document.getElementById('gameCanv');
         var ctx = canv.getContext("2d");
 
+        var ship = {
+            x: canv.width/2,
+            y: canv.height/2,
+            r: SHIP_SIZE/2,
+            a: 90/180 * Math.PI //convertendo para radianos
+        }
+//fazendo loop do jogo
+
+        setInterval(update , 1000/FPS)
+
+        function update () {
+                // desenhando espaço
+            ctx.fillStyle = black;
+            ctx.fillRect(0,0,canv.width,canv.height)
+
+
+           
+            
+        }
         
     </script>
 </body>
