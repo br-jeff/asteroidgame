@@ -79,8 +79,8 @@
             //desenhando boost
             
             if(ship.boosting) {
-                ship.boost.x += SHIP_BOOST * Math.cos(ship.a);
-                ship.boost.y += SHIP_BOOST * Math.sin(ship.a)
+                ship.boost.x += SHIP_BOOST * Math.cos(ship.a) /FPS;
+                ship.boost.y -= SHIP_BOOST * Math.sin(ship.a) /FPS;
             }
 
             //desenhando nave triangular
@@ -100,7 +100,7 @@
 
             ctx.lineTo(
                 ship.x - ship.r * ( 2/3 * Math.cos(ship.a)  - Math.sin(ship.a) ),
-                ship.y + ship.r * ( 2/3 *Math.sin(ship.a) - Math.cos(ship.a) ) 
+                ship.y + ship.r * ( 2/3 *Math.sin(ship.a) + Math.cos(ship.a) ) 
             )
             
             ctx.closePath();
