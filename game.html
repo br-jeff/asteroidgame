@@ -27,8 +27,24 @@
         function update () {
                 // desenhando espaço
             ctx.fillStyle = "black";
-            ctx.fillRect(0,0,canv.width,canv.height)
+            ctx.fillRect(0,0,canv.width,canv.height);
 
+            //desenhando nave triangular
+            ctx.strokeStyle = "white",
+            ctx.lineWidth = SHIP_SIZE /20;
+            ctx.beginPath();
+
+            ctx.moveTo(
+                ship.x + ship.r * Math.cos(ship.a),
+                ship.y - ship.r * Math.sin(ship.a)
+            );
+
+            ctx.lineTo(
+                ship.x - ship.r * ( Math.cos(ship.a) + Math.sin(ship.a)),
+                ship.y + ship.r * ( Math.sin(ship.a) - Math.cos(ship.a))
+            );
+
+            ctx.stroke();
 
            
             
