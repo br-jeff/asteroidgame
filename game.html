@@ -9,6 +9,7 @@
 
     <script>
         const FPS = 30; //frames por segundo
+        const friction = 0.7; //frixção para poder mover sem travar
         const SHIP_SIZE = 30; // altura em pixels
         const TURN_SPEED = 360; // 1 RMP = rotação por segundo 
         const SHIP_BOOST = 5; //aceleração em pixels por segundo
@@ -82,6 +83,9 @@
             if(ship.boosting) {
                 ship.boost.x += SHIP_BOOST * Math.cos(ship.a) /FPS;
                 ship.boost.y -= SHIP_BOOST * Math.sin(ship.a) /FPS;
+            } else {
+                ship.boost.x -=  ship.boost.x * friction /FPS;
+                ship.boost.y -=  ship.boost.y * friction /FPS;
             }
 
             //desenhando nave triangular
