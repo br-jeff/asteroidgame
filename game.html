@@ -20,7 +20,28 @@
             a: 90/180 * Math.PI //convertendo para radianos
         }
 
+        //set up event handlers
+        document.addEventListener("keydown", keyDown);
+        document.addEventListener("keyup", keyUp);
         //fazendo loop do jogo
+
+        function keyDown(event) {
+
+            switch(event.keyCode) {
+
+                case 37: //seta esquerda (rodar para esquerda)
+
+                    break;
+                case 38: // seta para cima ativar boost
+
+                    break;
+                case 39: // seta direita (rodar para direita)
+
+                    break;    
+
+            }
+
+        }
 
         setInterval(update , 1000/FPS)
 
@@ -50,10 +71,9 @@
             )
             
             ctx.closePath();
-
             ctx.stroke();
 
-              //fim desnho nave triangular
+//fim desnho nave triangular
 
            
               //ponto no centro do triangulo
