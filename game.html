@@ -34,7 +34,7 @@
         }
         var ax = 1
         var ay = 1
-        
+        var time = 0
         
         function colison() {
            
@@ -96,6 +96,8 @@
                 // desenhando espaço
             ctx.fillStyle = "black";
             ctx.fillRect(0,0,canv.width,canv.height);
+
+            
 
             //desenhando boost
             
@@ -159,6 +161,7 @@
 
             //fim desnho nave triangular
 
+            
 
             //movimentar a nave
             
@@ -167,16 +170,20 @@
             ship.y += ship.boost.y;
            //faz com que continue a se movimentar por um tempo
 
+           
             //rodar a nave
             ship.a += ship.rot;
             
             //desenhando asteroids
-            
+           
             squareDraw(ax,ay)
 
             ax++ * 2
             ay++ * 2
-        
+            
+            
+            
+            
 
 
             //final da tela é inicio do canto oposto
@@ -199,7 +206,8 @@
               //ponto no centro do triangulo
               ctx.fillStyle= "red";
               ctx.fillRect(ship.x - 1, ship.y - 1, 2,2);
-            
+              
+          
         }
         
     </script>
