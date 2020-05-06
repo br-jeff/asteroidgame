@@ -206,7 +206,12 @@
               //ponto no centro do triangulo
               ctx.fillStyle= "red";
               ctx.fillRect(ship.x - 1, ship.y - 1, 2,2);
-              
+                // tempo do jogo
+            ctx.font = "20px Georgia";
+            ctx.fillStyle = '#FFF'
+            ctx.fillText("tempo: " +time, 10, 390);
+           
+            time = time + 0.03 //convertendo tempo para segundos
           
         }
         
