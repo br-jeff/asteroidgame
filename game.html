@@ -32,6 +32,19 @@
             }
 
         }
+        var ax = 1
+        var ay = 1
+        
+        
+        function colison() {
+           
+        }
+        
+        function text(texto) {
+            ctx.font = '30px Arial';
+            ctx.fillStyle = '#fff'
+            ctx.fillText(texto,10,50)
+        }
 
         //set up event handlers
         document.addEventListener("keydown", keyDown);
@@ -69,6 +82,12 @@
                     break;     }
 
 
+        }
+
+        function squareDraw( x, y ) {
+            ctx.fillStyle = '#FFF'
+            ctx.fillRect(x,y,100,100)
+            
         }
 
         setInterval(update , 1000/FPS)
@@ -150,6 +169,15 @@
 
             //rodar a nave
             ship.a += ship.rot;
+            
+            //desenhando asteroids
+            
+            squareDraw(ax,ay)
+
+            ax++ * 2
+            ay++ * 2
+        
+
 
             //final da tela é inicio do canto oposto
             if (ship.x < 0 - ship.r){
