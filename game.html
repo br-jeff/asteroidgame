@@ -33,15 +33,26 @@
             dead: false
 
         }
-        var ax =  Math.floor(Math.random()* 400  - 300)
+        var posAsteroidX = [] 
+        var posAsteroidY= [] 
+    
+       
+        var ax =  1
         var ay =  1
         var time = 0
         
         //astroids start in diagonal
-        function startDiagonal( x , y) {
+        function startDiagonal( x ) {
          x =   Math.floor(Math.random()* 400  - 300)
-         y =  1
+         
+         return x
         }
+
+        for (var i = 0; i < 10; i++) {
+            posAsteroidX.push(startDiagonal(1))
+            posAsteroidY.push(startDiagonal(2))
+            }
+        
         function colison() {
            
         }
@@ -182,13 +193,21 @@
             ship.a += ship.rot;
             
             //desenhando asteroids
-           
-            squareDraw(ax,ay)
+            
+            // direita
+            squareDraw( posAsteroidX[1],posAsteroidY[1])
+            posAsteroidX[1]++
 
-            ax++ * 2
-            ay++ * 2
-            
-            
+            // baixo
+            squareDraw( posAsteroidX[2],posAsteroidY[2])
+            posAsteroidY[2]++
+
+            //diagonal 
+            squareDraw( posAsteroidX[3],posAsteroidY[3])
+            posAsteroidX[3]++
+            posAsteroidY[3]++
+
+
             
             
 
