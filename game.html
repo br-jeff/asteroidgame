@@ -13,6 +13,7 @@
         const SHIP_SIZE = 30; // altura em pixels
         const TURN_SPEED = 360; // 1 RMP = rotação por segundo 
         const SHIP_BOOST = 5; //aceleração em pixels por segundo
+        const ASTERO_SPEED = 3 // asteroid velocidade pixels por frame
 
         var canv = document.getElementById('gameCanv');
         var ctx = canv.getContext("2d");
@@ -43,7 +44,7 @@
         
         //astroids start in diagonal
         function startDiagonal( x ) {
-         x =   Math.floor(Math.random()* 400  - 300)
+         x =   Math.floor(Math.random()* 400 - 300) * 3
          
          return x
         }
@@ -104,7 +105,7 @@
         function squareDraw( x, y ) {
             
             ctx.fillStyle = '#FFF'
-            ctx.fillRect(x,y,100,100)
+            ctx.fillRect(x,y,70,70)
             
         }
 
@@ -196,21 +197,33 @@
             
             // direita
             squareDraw( posAsteroidX[1],posAsteroidY[1])
-            posAsteroidX[1]++
-
+            posAsteroidX[1] = posAsteroidX[1] + ASTERO_SPEED
             // baixo
             squareDraw( posAsteroidX[2],posAsteroidY[2])
-            posAsteroidY[2]++
+            posAsteroidY[2] =    posAsteroidY[2] + ASTERO_SPEED
 
             //diagonal 
             squareDraw( posAsteroidX[3],posAsteroidY[3])
-            posAsteroidX[3]++
-            posAsteroidY[3]++
+            posAsteroidX[3] =  posAsteroidX[3] + ASTERO_SPEED
+            posAsteroidY[3] =  posAsteroidY[3] + ASTERO_SPEED
 
-
+            //diagonal 
+            squareDraw( posAsteroidX[4],posAsteroidY[4])
+            posAsteroidX[4] =  posAsteroidX[4] +  ( ASTERO_SPEED* 2) 
+            posAsteroidY[4] =  posAsteroidY[4] + ASTERO_SPEED
+             //diagonal 
+            squareDraw( posAsteroidX[5],posAsteroidY[5])
+            posAsteroidX[5] =  posAsteroidX[5] + ASTERO_SPEED 
+            posAsteroidY[5] =  posAsteroidY[5] + ( ASTERO_SPEED* 2) 
             
-            
-
+            if (posAsteroidX[1] > 900 || posAsteroidX[1] < -100  )  {
+                posAsteroidX[1] = 10  
+                posAsteroidY[1]  = 10
+            }
+            if (posAsteroidY[1] > 500|| posAsteroidY[1] < -100) {
+                posAsteroidX[1] = 30
+                posAsteroidY[1]  = 30
+            }
 
             //final da tela é inicio do canto oposto
             if (ship.x < 0 - ship.r){
