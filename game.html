@@ -207,6 +207,8 @@
               //ponto no centro do triangulo
               ctx.fillStyle= "red";
               ctx.fillRect(ship.x - 1, ship.y - 1, 2,2);
+            
+          
 
              if (ship.dead == false) { 
             // tempo do jogo
@@ -218,10 +220,12 @@
             }
             else {
                 ctx.font = "20px Georgia";
-                ctx.fillStyle = '#FFF';
-                ctx.fillText("tempo: "+Time (10,390))
+                ctx.fillStyle = '#FFF'
+                ctx.fillText("tempo: " +time, 10, 390);
             }
-            
+            if (time > 2) {
+                ship.dead = true;
+            }
         }
         
     </script>
