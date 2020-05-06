@@ -211,18 +211,21 @@
           
 
              if (ship.dead == false) { 
-            // tempo do jogo
+            // tempo do jogo so corre se nave estiver viva
             ctx.font = "20px Georgia";
             ctx.fillStyle = '#FFF'
             ctx.fillText("tempo: " +time, 10, 390);
            
             time = time + 0.03 //convertendo tempo para segundos
             }
-            else {
+            else {  //nave morreu
+               
+                // tempo para
                 ctx.font = "20px Georgia";
                 ctx.fillStyle = '#FFF'
                 ctx.fillText("tempo: " +time, 10, 390);
 
+                // se a nave morreu mostrar game over
                 ctx.font = '50px Georgia';
                 ctx.fillStyle = '#FFF';
                 ctx.fillText("Game Over",  canv.width/2 - 140, canv.height/2 + 25);
